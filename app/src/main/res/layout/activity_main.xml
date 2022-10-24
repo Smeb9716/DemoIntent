@@ -32,6 +32,20 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/tvLaunchActFromAnother"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/holo_orange_light"
+        android:gravity="center"
+        android:text="Open Activity From Another"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+
+
+    <TextView
         android:id="@+id/tvSpannable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

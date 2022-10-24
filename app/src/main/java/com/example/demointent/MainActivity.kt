@@ -41,6 +41,26 @@ class MainActivity : AppCompatActivity() {
         // https://stackoverflow.com/questions/10696986/how-to-set-the-part-of-the-text-view-is-clickable/10697453#10697453
         handleEventClickHightlight()
 
+        // How to launch an Activity from another Application in Android?
+        // For Android 11 (API level 30) or higher : <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" tools:ignore="QueryAllPackagesPermission"/>
+        // https://stackoverflow.com/questions/3872063/how-to-launch-an-activity-from-another-application-in-android
+        // https://stackoverflow.com/questions/3422758/start-application-knowing-package-name (permission)
+        launchActFromAnother()
+
+    }
+
+    private fun launchActFromAnother() {
+        tvLaunchActFromAnother.setOnClickListener(){
+            val packageName = "com.example.demodrawable"
+            val intent = packageManager.getLaunchIntentForPackage(packageName)
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent)  //null pointer check in case package name was not found
+            }else{
+                Toast.makeText(this,"null pointer check in case package name was not found",Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
     private fun handleEventGetListContact() {
